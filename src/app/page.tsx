@@ -54,8 +54,8 @@ export default function Page() {
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Type to search..."
-            aria-label="Search articles"
+            placeholder="Search articles..."
+            aria-label="articles"
             className="w-full border border-gray-300 rounded-0 px-4 py-3 pr-10 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           />
           {q && (
@@ -64,7 +64,7 @@ export default function Page() {
               className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black text-lg"
               aria-label="Clear search"
             >
-              ×
+              x
             </button>
           )}
         </div>
@@ -79,8 +79,12 @@ export default function Page() {
               <h2 className="text-xl font-semibold leading-snug mb-1">
                 {highlight(a.title, q)}
               </h2>
-              <div className="text-sm text-gray-500 mb-2">
-                {new Date(a.date).toLocaleDateString()} 
+              <div className="text-sm text-black-400 mb-2 italic">
+                {new Date(a.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })} 
               </div>
               <p className="text-gray-800 leading-relaxed">{highlight(a.body, q)}</p>
             </article>
