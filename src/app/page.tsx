@@ -45,7 +45,7 @@ export default function Page() {
   }, [q]);
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen text-black-800">
       <div className="max-w-4xl mx-auto px-4 py-12">
 
         <h1 className="text-3xl font-bold mb-4">Search</h1>
@@ -56,7 +56,7 @@ export default function Page() {
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search articles..."
             aria-label="articles"
-            className="w-full border border-gray-300 rounded-0 px-4 py-3 pr-10 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full border border-gray-300 rounded-0 px-4 py-3 pr-10 bg-white text-black-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           />
           {q && (
             <button
@@ -75,11 +75,11 @@ export default function Page() {
 
         <section className="space-y-8">
           {results.map((a) => (
-            <article key={a.id}>
-              <h2 className="text-xl font-semibold leading-snug mb-1">
+            <article key={a.id} className="border-b-2 border-gray-300 pb-8">
+              <h2 className="text-2xl font-semibold leading-snug mb-1">
                 {highlight(a.title, q)}
               </h2>
-              <div className="text-sm text-black-400 mb-2 italic">
+              <div className="text-md text-black-400 mb-2 italic">
                 {new Date(a.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
