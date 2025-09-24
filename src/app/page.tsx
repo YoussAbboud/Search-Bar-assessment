@@ -75,7 +75,7 @@ export default function Page() {
 
         <section className="space-y-8">
           {results.map((a) => (
-            <article key={a.id} className="border-b-2 border-gray-300 pb-8">
+            <article key={a.id} className={` border-gray-300 pb-8 ${a.id == results.length ? "" : " border-b-2"}`}>
               <h2 className="text-2xl font-semibold leading-snug mb-1">
                 {highlight(a.title, q)}
               </h2>
